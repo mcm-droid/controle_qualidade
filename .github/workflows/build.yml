@@ -26,7 +26,7 @@ jobs:
 
       - name: Build APK
         run: |
-          flet build apk --target 04.py
+          flet build apk 04.py
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
