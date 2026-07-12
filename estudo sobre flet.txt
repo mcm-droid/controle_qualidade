@@ -1,0 +1,66 @@
+estudo sobre flet:
+
+import flet as ft
+
+def main(page: ft.Page):
+    # 1. Configurações da página (título, alinhamento, etc.)
+    page.title = "Minha Primeira Aula de Flet"
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+    # 2. Criando os elementos visuais (Controls)
+    texto = ft.Text(value="Olá, Mundo!", size=30, color="blue", weight=ft.FontWeight.BOLD)
+    
+    # 3. Adicionando os elementos na página
+    page.add(texto)
+
+# 4. Executando o aplicativo
+ft.app(target=main)
+
+Dessecando a Estrutura
+Para dominar o Flet, você precisa entender esses 4 pilares do código acima:
+
+page: ft.Page: A page (página) é o seu canvas. Ela não é um elemento visual em si, mas o container principal que guarda tudo o que vai aparecer na tela. É nela que você define o título da janela, o tema (claro/escuro) e como os elementos se alinham.
+
+Controls (Controles): No Flet, tudo o que é visual é chamado de Control (como ft.Text, ft.ElevatedButton, ft.TextField). No exemplo, criamos um controle de texto personalizado com tamanho, cor e negrito.
+
+page.add(): Criar um controle na memória não o faz aparecer na tela. Você precisa "adicioná-lo" à página. O método page.add() coloca o elemento na tela e já atualiza a interface automaticamente.
+
+ft.app(target=main): É a linha que dá a partida no motor do Flet, dizendo para ele abrir a janela e rodar a lógica que você escreveu dentro da função main.
+
+*--------------------------------------------------------------------------------------
+
+Aula 2: Dominando Linhas, Colunas e Containers (Os blocos de Lego)
+Agora que você entendeu o fluxo e a organização, precisamos entender a física de como os elementos se posicionam na tela no Flet. No FoxPro, você arrastava o botão para a coordenada X e Y (Pixel 10, Pixel 50). No Flet, a tela é fluida e responsiva. Nós organizamos as coisas usando três pilares principais:
+
+1. ft.Column (Colunas)
+Tudo o que você coloca dentro de uma ft.Column fica empilhado um embaixo do outro (na vertical). No seu sistema, o cabeçalho e o corpo estão dentro de uma grande coluna.
+
+2. ft.Row (Linhas)
+Tudo o que você coloca dentro de uma ft.Row fica posicionado um ao lado do outro (na horizontal). No seu cabeçalho acima, o Ícone e o Texto estão lado a lado porque estão dentro de uma ft.Row.
+
+3. ft.Container (A "Caixa" ou "Moldura")
+Os botões, colunas e linhas por padrão não têm cor de fundo, borda ou espaçamento. O ft.Container é uma caixa invisível (ou visível) onde você coloca coisas dentro para dar propriedades a elas, como:
+
+bgcolor: Cor de fundo.
+
+padding: O espaçamento interno (para o texto não ficar colado na borda).
+
+margin: O espaçamento externo (afastar uma caixa da outra).
+
+shadow: Efeitos de sombra, como o que dá o efeito 3D no topo do seu programa.
+
+Visualizando o Layout do Seu App
+Para ficar bem fácil de entender como o seu programa foi desenhado, veja esse mapa de caixas:
+
+Olha que interessante:
+
+A janela inteira é uma ft.Column principal.
+
+O primeiro elemento dela é um ft.Container (o Header) que guarda uma ft.Row (Ícone + Texto).
+
+O segundo elemento é o corpo_sistema, que vai alternando as opções na tela conforme você clica no menu.
+
+Que tal fazermos um pequeno exercício prático para fixar? Prefere que a gente monte uma linha de botões estilizados usando ft.Row e ft.Container (com efeitos de cor ao passar o mouse, como no seu app) ou quer entrar direto na lógica de como o seu programa gerencia os submenus e caminhos (as "migalhas de pão" tipo Menu > Qualidade)?
+
+*--------------------------------------------------------------------------------------
